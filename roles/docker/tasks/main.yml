@@ -9,6 +9,11 @@
     repo_arch: "{{ ansible_architecture }}"
   when: ansible_architecture == "arm64"
 
+- name: Set aarch64 arch
+  set_fact:
+    repo_arch: "{{ ansible_architecture }}"
+  when: ansible_architecture == "aarch64"
+
 - name: Include OS-specific variables
   include_vars: "{{ ansible_facts['distribution'] }}.yml"
 - name: Install required system packages
